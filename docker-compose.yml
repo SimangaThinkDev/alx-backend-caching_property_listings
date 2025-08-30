@@ -1,15 +1,17 @@
 services:
   db:
     image: postgres:latest
-    container_name: property-db
+    container_name: postgres_data
     restart: always
     environment:
+      - POSTGRES_DB=property_db
+      - POSTGRES_USER=user404
       - POSTGRES_PASSWORD=mysecretpassword
     ports:
       - 5432:5432
   caching:
     image: redis:latest
-    container_name: redis_cache
+    container_name: redis_data
     restart: always
     ports:
       - 6379:6379
