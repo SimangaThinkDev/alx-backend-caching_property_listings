@@ -39,8 +39,6 @@ def my_view(request): ...
 
 e.g. -> @cache_page(60 * 15, cache="special_cache")
 
-
-
 """
 
 
