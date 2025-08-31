@@ -1,7 +1,7 @@
 from django.core.cache import cache
 from .models import Property
 
-def getallproperties():
+def get_all_properties():
     # Try to get existing cache
     if cache.get('all_properties'):
         return cache.get( 'all_properties' )
