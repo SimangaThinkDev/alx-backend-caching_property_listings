@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from .models import Property
 from .serializers import PropertySerializer
 from django.http import JsonResponse
+from .utils import getallproperties
 
 # Create your views here.
 """ # Notes from docs
@@ -49,6 +50,6 @@ def property_list(request):
     """
     Returns a list of all properties.
     """
-    properties = Property.objects.all()
+    properties = getallproperties()
     serializer = PropertySerializer(properties, many=True)
     return JsonResponse({"properties": serializer.data})
