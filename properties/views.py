@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Property
 from .serializers import PropertySerializer
+from django.http import JsonResponse
 
 # Create your views here.
 """ # Notes from docs
@@ -50,4 +51,4 @@ def property_list(request):
     """
     properties = Property.objects.all()
     serializer = PropertySerializer(properties, many=True)
-    return Response(serializer.data)
+    return JsonResponse({"properties": serializer.data})
