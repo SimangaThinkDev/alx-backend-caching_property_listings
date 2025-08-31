@@ -3,7 +3,6 @@ from django.dispatch import receiver
 from .models import Property
 from django.core.cache import cache
 
-# cache.delete('all_properties')
 
 @receiver(post_save, sender=Property)
 def my_handler(sender, **kwargs):
