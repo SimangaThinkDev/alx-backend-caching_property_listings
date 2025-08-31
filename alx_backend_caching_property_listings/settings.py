@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django-redis',
+    # 'django-redis',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'db_name',
         'USER': 'db_user',
         'PASSWORD': 'password',
-        'HOST': 'property-db', # This must match the service name in docker-compose.yml
+        'HOST': 'postgres_data', # This must match the service name in docker-compose.yml
         'PORT': '5432',
     }
 }
@@ -90,7 +90,7 @@ DATABASES = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis_cache:6379/1", # 'redis' must match the service name
+        "LOCATION": "redis://redis_data:6379/1", # 'redis' must match the service name
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
